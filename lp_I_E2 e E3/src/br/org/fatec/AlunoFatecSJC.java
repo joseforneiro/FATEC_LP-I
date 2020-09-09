@@ -16,7 +16,7 @@ public class AlunoFatecSJC {
 		this.transporte = transporte;
 	}
 
-	//Métodos de acesso dos tipos Getter e Setter
+	//Metodos de acesso dos tipos Getter e Setter
 	public String getAluno() {
 		return aluno;
 	}
@@ -64,12 +64,12 @@ public class AlunoFatecSJC {
 	
 	//Matar aula
 	public void matar_aula() {
-		System.out.println("Não mate aula.");
+		System.out.println("Nao mate aula.");
 	}
 	
 	//Programar
 	public void programar() {
-		System.out.println("Programar é muito bom.");
+		System.out.println("Programar e muito bom.");
 	}
 	
 	

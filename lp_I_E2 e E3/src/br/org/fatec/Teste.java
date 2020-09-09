@@ -9,10 +9,10 @@ public class Teste {
 		
 		// Array Classe Lugar
 		Lugar[] Lug = new Lugar[5];
-		Lug[0] = new Lugar("Brasil", "Florianópolis", 600, "Frio", "Museus");
-		Lug[1] = new Lugar("Brasil", "São Paulo", 800, "Ameno", "Ibirapuera");
+		Lug[0] = new Lugar("Brasil", "Florianopolis", 600, "Frio", "Museus");
+		Lug[1] = new Lugar("Brasil", "Sao Paulo", 800, "Ameno", "Ibirapuera");
 		Lug[2] = new Lugar("Brasil", "Rio de Janeiro", 0, "Quente", "Praia");
-		Lug[3] = new Lugar("Brasil", "Campos do Jordão", 1600, "Frio", "Morro do Elefante");
+		Lug[3] = new Lugar("Brasil", "Campos do Jordao", 1600, "Frio", "Morro do Elefante");
 		Lug[4] = new Lugar("Brasil", "Rio Grande do Sul", 1000, "Frio", "Rota dos Vinhos");
 		
 		System.out.println("\n************************** Classe Lugar ***************************\n");
@@ -22,7 +22,7 @@ public class Teste {
 			System.out.println("Cidade............: " + Lug[i].getCidade());
 			System.out.println("Altitude..........: " + Lug[i].getAltitude());
 			System.out.println("Clima.............: " + Lug[i].getClima());
-			System.out.println("Pontos Turísticos.: " + Lug[i].getPontos_turisticos());
+			System.out.println("Pontos Turisticos.: " + Lug[i].getPontos_turisticos());
 			
 			if(Lug[i].getClima()=="Frio") {
 				System.out.println("");
@@ -47,7 +47,7 @@ public class Teste {
 		
 		for (int i=0; i<5; i++) {
 			
-			System.out.println(Pes[i].getNome() + " tem " + Pes[i].getAltura() + "m de altura, pesa " + Pes[i].getPeso() + ". É do sexo " + Pes[i].getSexo() + " e tem cabelos " + Pes[i].getCor_cabelo());
+			System.out.println(Pes[i].getNome() + " tem " + Pes[i].getAltura() + "m de altura, pesa " + Pes[i].getPeso() + ". e do sexo " + Pes[i].getSexo() + " e tem cabelos " + Pes[i].getCor_cabelo());
 		}
 		
 		//Array Classe AlunoFatecSJC
@@ -79,43 +79,43 @@ public class Teste {
 		
 		//Array Classe InstrumentoMusical
 		InstrumentoMusical[] Inst = new InstrumentoMusical[5];
-		Inst[0] = new InstrumentoMusical("Violão", "corda", "madeira", "médio", "sertanejo");
-		Inst[1] = new InstrumentoMusical("Violino", "corda", "madeira", "pequeno", "clássica");
-		Inst[2] = new InstrumentoMusical("Violoncelo ", "corda", "madeira", "grande", "clássica");
-		Inst[3] = new InstrumentoMusical("Saxofone", "sopro", "metal", "médio", "Jazz");
-		Inst[4] = new InstrumentoMusical("Clarinete", "sopro", "metral", "pequeno", "clássica");
+		Inst[0] = new InstrumentoMusical("Violao", "corda", "madeira", "medio", "sertanejo");
+		Inst[1] = new InstrumentoMusical("Violino", "corda", "madeira", "pequeno", "classica");
+		Inst[2] = new InstrumentoMusical("Violoncelo ", "corda", "madeira", "grande", "classica");
+		Inst[3] = new InstrumentoMusical("Saxofone", "sopro", "metal", "medio", "Jazz");
+		Inst[4] = new InstrumentoMusical("Clarinete", "sopro", "metral", "pequeno", "classica");
 		
 		System.out.println("\n******************** Classe InstrumentoMusical ********************\n");
 		
 		for (int i=0; i<5; i++) {
-			System.out.println("O " + Inst[i].getNome() + " é um instrummento de " + Inst[i].getTipo() + " feito em " + Inst[i].getMaterial() + " de tamanho " + Inst[i].getTamanho() + " e pode tocar música " + Inst[i].getRitmo());
-			if (Inst[i].getRitmo() == "clássica") {
+			System.out.println("O " + Inst[i].getNome() + " e um instrummento de " + Inst[i].getTipo() + " feito em " + Inst[i].getMaterial() + " de tamanho " + Inst[i].getTamanho() + " e pode tocar musica " + Inst[i].getRitmo());
+			if (Inst[i].getRitmo() == "classica") {
 				Inst[i].orquestra();
 			}
 		}
 		
 		//Array Classe Profissional
 		Profissional[] Prof = new Profissional[5];
-		Prof[0] = new Profissional("Psicólogo", "humanas", "Consultório", "Superior", 6);
-		Prof[1] = new Profissional("Médico", "biológicas", "Hospital", "Superior", 6);
+		Prof[0] = new Profissional("Psicologo", "humanas", "Consultorio", "Superior", 6);
+		Prof[1] = new Profissional("Medico", "biologicas", "Hospital", "Superior", 6);
 		Prof[2] = new Profissional("Engenheiro", "exatas", "Obras", "Superior", 5);
-		Prof[3] = new Profissional("Advogado", "humanas", "Escritório", "Superior", 5);
-		Prof[4] = new Profissional("Mestre de Obras", "exatas", "Obras", "Técnico", 2);
+		Prof[3] = new Profissional("Advogado", "humanas", "Escritorio", "Superior", 5);
+		Prof[4] = new Profissional("Mestre de Obras", "exatas", "Obras", "Tecnico", 2);
 		
 		System.out.println("\n*********************** Classe Profissional ***********************\n");
 		
-		int b = Integer.parseInt(JOptionPane.showInputDialog("Digite um número de 1 a 5"));
+		int b = Integer.parseInt(JOptionPane.showInputDialog("Digite um numero de 1 a 5"));
 		
 		if (b > 0 && b <=5) {
-			System.out.println("Você escolheu imprimir " + b + " profissão(ões).\n");
+			System.out.println("Voce escolheu imprimir " + b + " profissao(oes).\n");
 			for (int i=0; i<b; i++) {
-				System.out.println("Profissão.........: " + Prof[i].getProfissao());
-				System.out.println("Área..............: " + Prof[i].getArea());
+				System.out.println("Profissao.........: " + Prof[i].getProfissao());
+				System.out.println("Area..............: " + Prof[i].getArea());
 				System.out.println("Local Trabalho....: " + Prof[i].getLocal_trabalho());
-				System.out.println("Graduação.........: " + Prof[i].getGraduacao());
+				System.out.println("Graduacao.........: " + Prof[i].getGraduacao());
 				System.out.println("Anos de estudo....: " + Prof[i].getAnos_estudos());
 				
-				if(Prof[i].getLocal_trabalho()=="Consultório" || Prof[i].getLocal_trabalho()=="Escritório") {
+				if(Prof[i].getLocal_trabalho()=="Consultorio" || Prof[i].getLocal_trabalho()=="Escritorio") {
 					System.out.println("");
 					Prof[i].escritorio();
 				}
@@ -132,13 +132,13 @@ public class Teste {
 			}
 			
 		}else {
-			System.out.println("Você digitou um número diferente de 1 a 5");
+			System.out.println("Voce digitou um numero diferente de 1 a 5");
 		}
 		
 		//Array Calcado
 		Calcado[] Cal = new Calcado[5];
 		Cal[0] = new Calcado("Social", "Masculino", 40, "Preto", "Sim");
-		Cal[1] = new Calcado("Esporte", "Masculino", 42, "Branco", "Não");
+		Cal[1] = new Calcado("Esporte", "Masculino", 42, "Branco", "Nao");
 		Cal[2] = new Calcado("Social", "Feminino", 36, "Prata", "Sim");
 		Cal[3] = new Calcado("Esporte", "Feminino", 35, "Preto", "Sim");
 		Cal[4] = new Calcado("Social", "Masculino", 41, "Marrom", "Sim");
@@ -161,10 +161,10 @@ public class Teste {
 				cont4 += 1;
 			}
 		}
-		System.out.println("Sápatos Masculinos Cadastrados...: " + cont1);
-		System.out.println("Sápatos Femininos Cadastrados....: " + cont2);
-		System.out.println("Sápatos Sociais Cadastrados......: " + cont3);
-		System.out.println("Sápatos Esportes Cadastrados.....: " + cont4);
+		System.out.println("Sapatos Masculinos Cadastrados...: " + cont1);
+		System.out.println("Sapatos Femininos Cadastrados....: " + cont2);
+		System.out.println("Sapatos Sociais Cadastrados......: " + cont3);
+		System.out.println("Sapatos Esportes Cadastrados.....: " + cont4);
 		
 	}
 }

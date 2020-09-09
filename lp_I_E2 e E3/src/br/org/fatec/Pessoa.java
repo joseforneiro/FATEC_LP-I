@@ -16,7 +16,7 @@ public class Pessoa {
 		this.cor_cabelo = cor_cabelo;
 	}
 
-	//Métodos de acesso dos tipos Getter e Setter
+	//Metodos de acesso dos tipos Getter e Setter
 	public String getNome() {
 		return nome;
 	}
@@ -59,7 +59,7 @@ public class Pessoa {
 	
 	//Falar
 	public void falar() {
-		System.out.println("Fale baixo para não atrapalhar.");
+		System.out.println("Fale baixo para nao atrapalhar.");
 	}
 	
 	//Sorrir
@@ -69,7 +69,7 @@ public class Pessoa {
 
 	//Ouvir
 	public void ouvir() {
-		System.out.println("Ouça com atenção.");
+		System.out.println("Ouca com atencao.");
 	}
 	
 

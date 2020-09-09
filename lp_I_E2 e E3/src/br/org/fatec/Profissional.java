@@ -16,7 +16,7 @@ public class Profissional {
 		this.anos_estudos = anos_estudos;
 	}
 
-	//Métodos de acesso dos tipos Getter e Setter
+	//Metodos de acesso dos tipos Getter e Setter
 	public String getProfissao() {
 		return profissao;
 	}
@@ -59,7 +59,7 @@ public class Profissional {
 	
 	//trabalhar_escritório
 	public void escritorio() {
-		System.out.println("Não fique muito sentado");
+		System.out.println("Nao fique muito sentado");
 	}
 	
 	//trabalhar_hospital
@@ -69,7 +69,7 @@ public class Profissional {
 	
 	//trabalhar_rua
 	public void rua() {
-		System.out.println("dirija com atenção");
+		System.out.println("dirija com atencao");
 	}
 		
 		

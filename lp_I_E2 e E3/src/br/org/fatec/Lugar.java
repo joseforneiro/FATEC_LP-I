@@ -16,7 +16,7 @@ public class Lugar {
 		this.pontos_turisticos = pontos_turisticos;
 	}
 		
-	//Métodos de acesso dos tipos Getter e Setter	
+	//Metodos de acesso dos tipos Getter e Setter	
 	public String getPais() {
 		return pais;
 	}
@@ -59,7 +59,7 @@ public class Lugar {
 
 	// Comer
 	public void comer() {
-		System.out.println("Vá a bons restaurantes");
+		System.out.println("Va a bons restaurantes");
 	}
 		
 	// Trabalhar

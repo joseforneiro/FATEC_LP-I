@@ -16,7 +16,7 @@ public class InstrumentoMusical {
 		this.ritmo = ritmo;
 	}
 
-	//Métodos de acesso dos tipos Getter e Setter
+	//Metodos de acesso dos tipos Getter e Setter
 	public String getNome() {
 		return nome;
 	}

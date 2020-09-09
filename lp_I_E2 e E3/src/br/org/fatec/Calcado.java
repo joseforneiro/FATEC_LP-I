@@ -16,7 +16,7 @@ public class Calcado {
 		this.salto = salto;
 	}
 	
-	//Métodos de acesso dos tipos Getter e Setter
+	//Metodos de acesso dos tipos Getter e Setter
 	public String getModelo() {
 		return modelo;
 	}
