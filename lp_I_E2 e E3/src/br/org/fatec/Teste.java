@@ -18,7 +18,7 @@ public class Teste {
 		System.out.println("\n************************** Classe Lugar ***************************\n");
 		
 		for (int i=0; i<5; i++) {
-			System.out.println("País..............: " + Lug[i].getPais());
+			System.out.println("Pais..............: " + Lug[i].getPais());
 			System.out.println("Cidade............: " + Lug[i].getCidade());
 			System.out.println("Altitude..........: " + Lug[i].getAltitude());
 			System.out.println("Clima.............: " + Lug[i].getClima());

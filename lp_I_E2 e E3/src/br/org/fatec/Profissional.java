@@ -57,7 +57,7 @@ public class Profissional {
 		this.anos_estudos = anos_estudos;
 	}
 	
-	//trabalhar_escritório
+	//trabalhar_escritorio
 	public void escritorio() {
 		System.out.println("Nao fique muito sentado");
 	}
