@@ -8,9 +8,9 @@ public class Planeta {
 	String habitado;
 	
 	//Construtor
-	public Planeta(String nomeplaneta, String habitado) {
+	public Planeta(String nomeplaneta, Float distancia_sol) {
 		nome = nomeplaneta;
-		this.habitado = habitado;
+		this.distancia_sol = distancia_sol;
 	}
 	
 	//Metodos de acesso dos tipos Getter e Setter
