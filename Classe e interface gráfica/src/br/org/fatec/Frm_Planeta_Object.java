@@ -44,6 +44,7 @@ public class Frm_Planeta_Object extends JFrame {
 	/**
 	 * Create the frame.
 	 */
+	
 	public Frm_Planeta_Object() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 450, 300);
@@ -54,88 +55,126 @@ public class Frm_Planeta_Object extends JFrame {
 		
 		JLabel PlLabelTitulo = new JLabel("Planeta");
 		PlLabelTitulo.setHorizontalAlignment(SwingConstants.CENTER);
-		PlLabelTitulo.setFont(new Font("Tahoma", Font.BOLD, 14));
+		PlLabelTitulo.setFont(new Font("Algerian", Font.ITALIC, 17));
 		PlLabelTitulo.setBounds(23, 11, 401, 14);
 		contentPane.add(PlLabelTitulo);
 		
 		JLabel PlLabelNome = new JLabel("Nome");
-		PlLabelNome.setBounds(10, 52, 46, 14);
+		PlLabelNome.setBounds(10, 52, 62, 14);
 		contentPane.add(PlLabelNome);
 		
 		JLabel PlLabelCor = new JLabel("Cor");
-		PlLabelCor.setBounds(10, 77, 46, 14);
+		PlLabelCor.setBounds(10, 77, 62, 14);
 		contentPane.add(PlLabelCor);
 		
 		JLabel PlLabelTamanho = new JLabel("Tamanho");
-		PlLabelTamanho.setBounds(10, 102, 46, 14);
+		PlLabelTamanho.setBounds(10, 102, 62, 14);
 		contentPane.add(PlLabelTamanho);
 		
 		JLabel PlLabelDistancia = new JLabel("Dist. Sol");
-		PlLabelDistancia.setBounds(10, 127, 46, 14);
+		PlLabelDistancia.setBounds(10, 127, 62, 14);
 		contentPane.add(PlLabelDistancia);
 		
 		JLabel PlLabelHabitado = new JLabel("Habitado");
-		PlLabelHabitado.setBounds(10, 155, 46, 14);
+		PlLabelHabitado.setBounds(10, 155, 62, 14);
 		contentPane.add(PlLabelHabitado);
 		
 		nomeField = new JTextField();
-		nomeField.setBounds(66, 49, 142, 20);
+		nomeField.setDocument(new Limite_digitos(10)); // Esse é o código para limitar o número de digitos. Ele chama a classe Limite_digitos
+		nomeField.setBounds(82, 52, 142, 20);
 		contentPane.add(nomeField);
 		nomeField.setColumns(10);
-		
+						
 		corField = new JTextField();
-		corField.setBounds(66, 74, 142, 20);
+		corField.setDocument(new Limite_digitos(10)); // Esse é o código para limitar o número de digitos. Ele chama a classe Limite_digitos
+		corField.setBounds(82, 77, 142, 20);
 		contentPane.add(corField);
 		corField.setColumns(10);
 		
 		tamanhoField = new JTextField();
-		tamanhoField.setBounds(66, 99, 142, 20);
+		tamanhoField.setDocument(new Limite_digitos_numeros(15)); // Esse é o código para limitar o número de digitos. Ele chama a classe Limite_digitos_numeros
+		tamanhoField.setBounds(82, 102, 142, 20);
 		contentPane.add(tamanhoField);
 		tamanhoField.setColumns(10);
 		
 		distanciaField = new JTextField();
-		distanciaField.setBounds(66, 124, 142, 20);
+		distanciaField.setDocument(new Limite_digitos_numeros(15)); // Esse é o código para limitar o número de digitos. Ele chama a classe Limite_digitos_numeros
+		distanciaField.setBounds(82, 127, 142, 20);
 		contentPane.add(distanciaField);
 		distanciaField.setColumns(10);
 		
 		habitadoField = new JTextField();
 		habitadoField.setEditable(false);
-		habitadoField.setBounds(66, 152, 142, 20);
+		habitadoField.setBounds(82, 155, 142, 20);
 		contentPane.add(habitadoField);
 		habitadoField.setColumns(10);
 		
 		JButton PlButtonSalvar = new JButton("Salvar");
+		Planeta pl = new Planeta();
 		PlButtonSalvar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+								
+				if(nomeField.getText().equals("Terra") || nomeField.getText().equals("terra")) {
+					habitadoField.setText("Sim");
+					}else {
+						habitadoField.setText("Nao");
+						}
 				
+				if(Float.parseFloat(distanciaField.getText()) < 150) {
+					climaField.setText(pl.quente());
+				}else if(Float.parseFloat(distanciaField.getText()) > 150) {
+					climaField.setText(pl.frio());
+				}else {
+					climaField.setText("Temperatura perfeita");
+				}
+				
+				InserirPlaneta();	
+							
 			}
 		});
-		PlButtonSalvar.setBounds(304, 48, 89, 43);
+		
+		PlButtonSalvar.setBounds(318, 48, 89, 43);
 		contentPane.add(PlButtonSalvar);
 		
 		JButton PlButtonLimpar = new JButton("Limpar");
 		PlButtonLimpar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				nomeField.setText("");
-				corField.setText("");
-				tamanhoField.setText("");
-				distanciaField.setText("");
-				habitadoField.setText("");
-				climaField.setText("");
-				
+				LimparCampos();
 			}
 		});
-		PlButtonLimpar.setBounds(304, 113, 89, 43);
+		
+		PlButtonLimpar.setBounds(318, 170, 89, 43);
 		contentPane.add(PlButtonLimpar);
 		
 		climaField = new JTextField();
 		climaField.setEditable(false);
-		climaField.setBounds(66, 180, 142, 20);
+		climaField.setBounds(82, 183, 206, 20);
 		contentPane.add(climaField);
 		climaField.setColumns(10);
 		
 		JLabel PlLabelClima = new JLabel("Clima");
-		PlLabelClima.setBounds(10, 183, 46, 14);
+		PlLabelClima.setBounds(10, 183, 62, 14);
 		contentPane.add(PlLabelClima);
+		
+		JButton PlButtonProcurar = new JButton("Procurar");
+		PlButtonProcurar.setBounds(318, 108, 89, 43);
+		contentPane.add(PlButtonProcurar);
+	}
+	
+	public void InserirPlaneta() {
+		Planeta pl = new Planeta(nomeField.getText(),Float.parseFloat(distanciaField.getText()));
+		String cor = corField.getText();
+		String tamanho = tamanhoField.getText();
+		String habitado = habitadoField.getText();
+		//LimparCampos();
+	}
+	
+	public void LimparCampos() {
+		nomeField.setText("");
+		corField.setText("");
+		tamanhoField.setText("");
+		distanciaField.setText("");
+		habitadoField.setText("");
+		climaField.setText("");
 	}
 }

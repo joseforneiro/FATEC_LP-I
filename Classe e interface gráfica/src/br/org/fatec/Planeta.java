@@ -12,6 +12,9 @@ public class Planeta {
 		nome = nomeplaneta;
 		this.distancia_sol = distancia_sol;
 	}
+	public Planeta() {
+		
+	}
 	
 	//Metodos de acesso dos tipos Getter e Setter
 	public String getNome() {
@@ -55,12 +58,12 @@ public class Planeta {
 	}
 	
 	// Frio
-	public void frio() {
-		System.out.println("Esse planeta é muito frio para ser habitado");
+	public String frio() {
+		return "Muito frio para ser habitado";
 	}
 	
 	// Quente
-		public void quente() {
-			System.out.println("Esse planeta é muito frio para ser habitado");
+		public String quente() {
+			return "Muito quente para ser habitado";
 		}
 }
