@@ -13,6 +13,7 @@ import java.awt.Font;
 import javax.swing.JSplitPane;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
 import java.awt.event.ActionEvent;
 
 public class Frm_Planeta_Object extends JFrame {
@@ -24,6 +25,7 @@ public class Frm_Planeta_Object extends JFrame {
 	private JTextField distanciaField;
 	private JTextField habitadoField;
 	private JTextField climaField;
+	private ArrayList<Planeta> planetas; // criação do ArrayList Planeta
 
 	/**
 	 * Launch the application.
@@ -45,7 +47,11 @@ public class Frm_Planeta_Object extends JFrame {
 	 * Create the frame.
 	 */
 	
+	
 	public Frm_Planeta_Object() {
+		
+		planetas = new ArrayList<Planeta>(); // iniciando o ArrayList Planeta
+		setTitle("Cadastro de Planetas");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 450, 300);
 		contentPane = new JPanel();
@@ -109,8 +115,8 @@ public class Frm_Planeta_Object extends JFrame {
 		contentPane.add(habitadoField);
 		habitadoField.setColumns(10);
 		
-		JButton PlButtonSalvar = new JButton("Salvar");
-		Planeta pl = new Planeta();
+		JButton PlButtonSalvar = new JButton("Salvar"); // Botão Salvar
+		Planeta pl = new Planeta(); // método construtor
 		PlButtonSalvar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 								
@@ -120,15 +126,15 @@ public class Frm_Planeta_Object extends JFrame {
 						habitadoField.setText("Nao");
 						}
 				
-				if(Float.parseFloat(distanciaField.getText()) < 150) {
+				if(Integer.valueOf(distanciaField.getText()) < 150) {
 					climaField.setText(pl.quente());
-				}else if(Float.parseFloat(distanciaField.getText()) > 150) {
+				}else if(Integer.valueOf(distanciaField.getText()) > 150) {
 					climaField.setText(pl.frio());
 				}else {
 					climaField.setText("Temperatura perfeita");
 				}
 				
-				InserirPlaneta();	
+				InserirPlaneta(); // chamando o método InserirPlaneta
 							
 			}
 		});
@@ -136,10 +142,10 @@ public class Frm_Planeta_Object extends JFrame {
 		PlButtonSalvar.setBounds(318, 48, 89, 43);
 		contentPane.add(PlButtonSalvar);
 		
-		JButton PlButtonLimpar = new JButton("Limpar");
+		JButton PlButtonLimpar = new JButton("Limpar"); // Botão Limpar
 		PlButtonLimpar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				LimparCampos();
+				LimparCampos(); // chamando o método LimparCampos
 			}
 		});
 		
@@ -156,17 +162,48 @@ public class Frm_Planeta_Object extends JFrame {
 		PlLabelClima.setBounds(10, 183, 62, 14);
 		contentPane.add(PlLabelClima);
 		
-		JButton PlButtonProcurar = new JButton("Procurar");
+		JButton PlButtonProcurar = new JButton("Procurar"); // Botão Procurar
+		PlButtonProcurar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				ProcurarPlaneta(); // chamando o método ProcurarPlaneta				
+			}
+		});
 		PlButtonProcurar.setBounds(318, 108, 89, 43);
 		contentPane.add(PlButtonProcurar);
 	}
-	
+		
 	public void InserirPlaneta() {
-		Planeta pl = new Planeta(nomeField.getText(),Float.parseFloat(distanciaField.getText()));
-		String cor = corField.getText();
-		String tamanho = tamanhoField.getText();
-		String habitado = habitadoField.getText();
+		Planeta pl = new Planeta(nomeField.getText(),Integer.valueOf(distanciaField.getText()));
+		pl.setCor(corField.getText());
+		pl.setTamanho(tamanhoField.getText());
+		pl.setHabitado(habitadoField.getText());
+		planetas.add(pl);
 		//LimparCampos();
+	}
+	
+	public void ProcurarPlaneta() {
+		Planeta pl = new Planeta();
+		
+		for (int i=0;i<planetas.size();i++) {
+			
+			pl=(Planeta)planetas.get(i);
+			if(pl.getNome().equals(nomeField.getText())) {
+				corField.setText(pl.getCor());
+				tamanhoField.setText(pl.getTamanho());
+				distanciaField.setText(String.valueOf(pl.getDistancia_sol()));
+				habitadoField.setText(pl.getHabitado());
+				
+				// Para preencher o distanciaField:
+				if(Integer.valueOf(distanciaField.getText()) < 150) {
+					climaField.setText(pl.quente());
+				}else if(Integer.valueOf(distanciaField.getText()) > 150) {
+					climaField.setText(pl.frio());
+				}else {
+					climaField.setText("Temperatura perfeita");
+				}
+			}
+		}
+		
 	}
 	
 	public void LimparCampos() {

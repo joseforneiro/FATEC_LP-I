@@ -4,11 +4,11 @@ public class Planeta {
 	String nome;
 	String cor;
 	String tamanho;
-	Float distancia_sol;
+	int distancia_sol;
 	String habitado;
 	
 	//Construtor
-	public Planeta(String nomeplaneta, Float distancia_sol) {
+	public Planeta(String nomeplaneta, int distancia_sol) {
 		nome = nomeplaneta;
 		this.distancia_sol = distancia_sol;
 	}
@@ -41,11 +41,11 @@ public class Planeta {
 		this.tamanho = tamanho;
 	}
 
-	public Float getDistancia_sol() {
+	public int getDistancia_sol() {
 		return distancia_sol;
 	}
 
-	public void setDistancia_sol(Float distancia_sol) {
+	public void setDistancia_sol(int distancia_sol) {
 		this.distancia_sol = distancia_sol;
 	}
 
