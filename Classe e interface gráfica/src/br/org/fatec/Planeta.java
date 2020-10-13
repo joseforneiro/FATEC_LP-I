@@ -12,6 +12,8 @@ public class Planeta {
 		nome = nomeplaneta;
 		this.distancia_sol = distancia_sol;
 	}
+	
+	//Construtor vazio
 	public Planeta() {
 		
 	}

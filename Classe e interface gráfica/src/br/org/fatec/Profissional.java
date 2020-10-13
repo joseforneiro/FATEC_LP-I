@@ -15,6 +15,11 @@ public class Profissional {
 		this.graduacao = graduacao;
 		this.anos_estudos = anos_estudos;
 	}
+	
+	//Construtor vazio
+	public Profissional() {
+		
+	}
 
 	//Metodos de acesso dos tipos Getter e Setter
 	public String getProfissao() {
