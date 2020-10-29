@@ -11,10 +11,13 @@ import javax.swing.JTextField;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import java.util.HashMap;
+
 
 public class Frm_Capital extends JFrame {
 	private JTextField tF_Sigla;
 	private JTextField tF_Capital;
+	private HashMap hm; // criação do HashMap hm
 
 	/**
 	 * Launch the application.
@@ -36,6 +39,9 @@ public class Frm_Capital extends JFrame {
 	 * Create the frame.
 	 */
 	public Frm_Capital() {
+		
+		hm = new HashMap(); // iniciando o HashMap hm
+		CadastrarCapital(); // Chamando o Método CadastrarCapital
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 450, 300);
 		getContentPane().setLayout(null);
@@ -68,6 +74,14 @@ public class Frm_Capital extends JFrame {
 		tF_Capital.setColumns(10);
 		
 		JButton BProcurar = new JButton("Procurar");
+		BProcurar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				
+				tF_Capital.setText((String) hm.get(tF_Sigla.getText()));
+				System.out.println(hm.get(tF_Sigla.getText()));
+			}
+			
+		});
 		BProcurar.setBounds(109, 211, 89, 23);
 		getContentPane().add(BProcurar);
 		
@@ -87,7 +101,32 @@ public class Frm_Capital extends JFrame {
 	}
 	
 	public void CadastrarCapital() {
-		
+		hm.put("AC","Rio Branco");
+		hm.put("AL","Maceio");
+		hm.put("AP","Amapá");
+		hm.put("AM","Manaus");
+		hm.put("BA","Salvador");
+		hm.put("CE","Fortaleza");
+		hm.put("DF","Brasilia");
+		hm.put("ES","Vitoria");
+		hm.put("AC","Rio Branco");
+		hm.put("MA","Sao Luis");
+		hm.put("MT","Cuiaba");
+		hm.put("MS","Campo Grande");
+		hm.put("MG","Belo Horizonte");
+		hm.put("PA","Belem");
+		hm.put("PB","Joao Pessoa");
+		hm.put("PR","Curitiba");
+		hm.put("PE","Recife");
+		hm.put("PI","Teresina");
+		hm.put("RJ","Rio de Janeiro");
+		hm.put("RN","Natal");
+		hm.put("RS","Porto Alegre");
+		hm.put("RO","Porto Velho");
+		hm.put("SC","Florianopolis");
+		hm.put("SP","Sao Paulo");
+		hm.put("SE","Aracaju");
+		hm.put("TO","Tocantins");
 	}
 	
 }
