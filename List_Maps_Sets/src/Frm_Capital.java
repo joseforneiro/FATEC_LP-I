@@ -63,6 +63,7 @@ public class Frm_Capital extends JFrame {
 		getContentPane().add(lblNewLabel_2);
 		
 		tF_Sigla = new JTextField();
+		tF_Sigla.setDocument(new Limite_digitos(2)); // Esse é o código para limitar o número de digitos. Ele chama a classe Limite_digitos
 		tF_Sigla.setBounds(171, 107, 52, 20);
 		getContentPane().add(tF_Sigla);
 		tF_Sigla.setColumns(10);
