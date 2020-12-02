@@ -6,18 +6,24 @@ import java.sql.SQLException;
 
 public class ConnectionBase {
 	
+	/*Configuração do BD */
+	String url = "jdbc:mysql://localhost:3306/profissao";
+	String user = "Profissao";
+	String password = "123";
+	String driver = "com.mysql.jdbc.Driver";
+	
 	protected Connection conexao;
 	
-	public Connection open() {
+	public Connection abrirConexao() {
 		
 		try {
 			
-			Class.forName("com.mysql.jdbc.Driver");
+			Class.forName(driver);
 			System.out.println("Driver Ok");
 			
-			conexao = DriverManager.getConnection("jdbc:mysql://localhost:3306/profissao", "Profissao", "123");
+			conexao = DriverManager.getConnection(url, user , password);
 			
-			System.out.println("Realizada a conexão");
+			System.out.println("Iniciada a conexão");
 			return conexao;
 			
 		} catch (SQLException | ClassNotFoundException e) {
@@ -27,7 +33,7 @@ public class ConnectionBase {
 		return null;
 	}
 	
-	public void close() {
+	public void fecharConexao() {
 		try {
 				if(conexao != null)
 					conexao.close();

@@ -3,24 +3,27 @@ package br.org.fatec;
 
 import java.awt.BorderLayout;
 import java.awt.EventQueue;
-
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
+import javafx.beans.value.ChangeListener;
+import javafx.beans.value.ObservableValue;
+
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
-
 import java.awt.FlowLayout;
 import javax.swing.BoxLayout;
 import javax.swing.JTextField;
 import javax.swing.JButton;
 import java.awt.Font;
 import java.util.ArrayList;
+import java.util.ResourceBundle;
 
 import javax.swing.SwingConstants;
 import javax.swing.JComboBox;
 import java.awt.event.ActionListener;
+import java.net.URL;
 import java.awt.event.ActionEvent;
 
 public class Frm_Profissional_Object extends JFrame {
@@ -89,7 +92,7 @@ public class Frm_Profissional_Object extends JFrame {
 		getContentPane().add(PrLabelAnos);
 		
 		localField = new JTextField();
-		localField.setDocument(new Limite_digitos(10)); // Esse é o código para limitar o número de digitos. Ele chama a classe Limite_digitos
+		localField.setDocument(new Limite_digitos(15)); // Esse é o código para limitar o número de digitos. Ele chama a classe Limite_digitos
 		localField.setBounds(111, 118, 142, 20);
 		getContentPane().add(localField);
 		localField.setColumns(10);
@@ -120,7 +123,7 @@ public class Frm_Profissional_Object extends JFrame {
 				
 			}
 		});
-		PrButtonSalvar.setBounds(323, 37, 89, 43);
+		PrButtonSalvar.setBounds(323, 53, 89, 43);
 		getContentPane().add(PrButtonSalvar);
 		
 		JButton PrButtonProcurar = new JButton("Procurar"); // Botão Procurar
@@ -129,7 +132,7 @@ public class Frm_Profissional_Object extends JFrame {
 				ProcurarProfissao(); // chamando o método ProcurarProfissao
 			}
 		});
-		PrButtonProcurar.setBounds(323, 87, 89, 43);
+		PrButtonProcurar.setBounds(323, 107, 89, 43);
 		getContentPane().add(PrButtonProcurar);
 		
 		JButton PrButtonLimpar = new JButton("Limpar"); // Botão Limpar
@@ -138,7 +141,7 @@ public class Frm_Profissional_Object extends JFrame {
 				LimparCampos(); // chamando o método LimparCampos
 			}
 		});
-		PrButtonLimpar.setBounds(323, 184, 89, 43);
+		PrButtonLimpar.setBounds(323, 158, 89, 43);
 		getContentPane().add(PrButtonLimpar);
 		
 		JLabel lblNewLabel = new JLabel("Profissional");
@@ -146,10 +149,6 @@ public class Frm_Profissional_Object extends JFrame {
 		lblNewLabel.setFont(new Font("Algerian", Font.ITALIC, 17));
 		lblNewLabel.setBounds(22, 21, 390, 14);
 		getContentPane().add(lblNewLabel);
-		
-		JButton PrButtonExcluir = new JButton("Excluir");
-		PrButtonExcluir.setBounds(323, 137, 89, 39);
-		getContentPane().add(PrButtonExcluir);
 	}
 	public void InserirProfissao() {
 		String profissao = profissaoField.getText();
@@ -160,15 +159,22 @@ public class Frm_Profissional_Object extends JFrame {
 		    
     	Profissional profiss = new Profissional(profissao, area, local_trabalho, graduacao, anos);
     	ProfissionalSQL profissSQL = new ProfissionalSQL();
-    	profissSQL.create(profiss);
-	
-		
+    	profissSQL.inserir(profiss);		
 	}
 	
 	public void ProcurarProfissao() {
+		System.out.println("Profissional: " + profissaoField.getText() + "\n");
+		if (!"".equals(profissaoField.getText())) {
+			ProfissionalSQL profissSQL = new ProfissionalSQL();
 
-
-		
+			String profissao = profissaoField.getText();
+			Profissional profiss = profissSQL.buscarProfissional(profissao);
+			profissaoField.setText(profiss.getProfissao());
+			areaField.setText(profiss.getArea());
+			localField.setText(profiss.getLocal_trabalho());
+			graduacaoField.setText(profiss.getGraduacao());
+			anosField.setText(String.valueOf(profiss.getAnos_estudos()));
+		}	
 	}
 	
 	public void LimparCampos() {
@@ -178,4 +184,6 @@ public class Frm_Profissional_Object extends JFrame {
 		graduacaoField.setText("");
 		anosField.setText("");
 	}
+	
+	
 }

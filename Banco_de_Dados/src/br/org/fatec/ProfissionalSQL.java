@@ -10,9 +10,9 @@ import java.util.List;
 
 public class ProfissionalSQL extends ConnectionBase {
 	
-	public void create(Profissional profiss) {
+	public void inserir(Profissional profiss) {
 		
-		open(); // Função da classe ConnectionBase
+		abrirConexao(); // Função da classe ConnectionBase
 		
 		try {
 			String sql = "INSERT INTO profissional";
@@ -32,14 +32,14 @@ public class ProfissionalSQL extends ConnectionBase {
 			e.printStackTrace();
 			
 		}finally {
-			close(); // Função da classe ConnectionBase
+			fecharConexao(); // Função da classe ConnectionBase
 		}
 	}
 	
 	
-	public Profissional buscarProfissionalPelaProfissao(String profissao) {
+	public Profissional buscarProfissional(String profissao) {
 
-		open();
+		abrirConexao();
 
 		ArrayList<Profissional> result = new ArrayList<>();
 
@@ -50,24 +50,26 @@ public class ProfissionalSQL extends ConnectionBase {
 
 			while (rs.next()) {
 
-				Profissional profiss = new Profissional(rs.getString(1), // Igual ao construtor da classe Profissional
-						rs.getString(2), 
+				Profissional profiss = new Profissional(rs.getString(2), // Igual ao construtor da classe Profissional
 						rs.getString(3), 
-						rs.getString(4),
-						rs.getInt(5));
-				
+						rs.getString(4), 
+						rs.getString(5),
+						rs.getInt(6)
+						);
+				System.out.println(rs.getString(4));
 				result.add(profiss);
 			}
+			stm.executeUpdate();
+			
 		} catch (SQLException e) {
 			System.out.println("Exception método all");
 			e.printStackTrace();
+			
 		} finally {
-			close();
+			fecharConexao();
 		}
 		return result.get(0);
 	}
-	
-	
 	
 
 }
